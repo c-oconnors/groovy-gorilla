@@ -17,7 +17,7 @@ async function refreshAccessToken(token) {
       // Replace if new one came back else keep the old one
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
 
     return {
       ...token,
@@ -42,31 +42,32 @@ export default NextAuth({
     signIn: "/login",
   },
   callbacks: {
-    async jwt({ token, user, account }) {
+    async jwt({ token, account, user }) {
 
-      // initial sign in 
+      // if initial sign in 
       if (account && user) {
         return {
           ...token,
-          accesToken: account.accessToken,
+          accessToken: account.access_token,
           refreshToken: account.refresh_token,
-          username: account.providerproviderAccountId,
+          username: account.providerAccountId,
           accessTokenExpires: account.expires_at * 1000, // we are converting to milliseconds 
-        }
+        };
       }
       if (Date.now() < token.accessTokenExpires) {
-        console.log("access token has not expired yet");
+        console.log("EXISTING ACCESS TOKEN IS VALID");
         return token;
       }
       //access token has expired now refresh
-      console.log("access token has expired...refreshing");
+      console.log("ACCESS TOKEN HAS EXPIRED...REFRESHING");
       return await refreshAccessToken(token);
     },
     async session({ session, token }) {
       session.user.accessToken = token.accessToken;
       session.user.refreshToken = token.refreshToken;
       session.user.username = token.username;
+      
       return session;
-    }
+    },
   },
 });
