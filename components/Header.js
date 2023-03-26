@@ -1,14 +1,25 @@
 import React from 'react';
 import Image from 'next/image';
-import groovyProfilePlain from '../public/gg-profile-no-text.png';
+import { 
+  HomeIcon, 
+  LogoutIcon,
+  ChevronDownIcon,
+ } from "@heroicons/react/outline";
+
+import { signOut, useSession } from "next-auth/react";
 
 function Header() {
+  const { data: session, status } = useSession();
   return (
-    <div className="flex items-center bg-groovyYellow p-5 border-black border-4 border-opacity-100">
-
-        <Image className="rounded-full m-0 p-0 w-20 h-20 border-solid border-4 border-black border-opacity-100" src={groovyProfilePlain} alt="Groovy Gorilla Profile Pic"/>
-      <div>
-        <h1 className="text-3xl font-bold">Groovy Gorilla</h1>
+    <div className="flex bg-groovyYellow p-5 border-black border-b-4 border-opacity-100">
+      <div className="flex justify-start"></div>
+      <h1 className="text-3xl font-bold">Groovy Gorilla</h1>
+      <div className="flex justify-end ">
+          <img className="rounded-full w-10 h-10 border-solid border-4 border-black" src={session?.user?.image} alt="" />
+        <button className=" flex items-center space-x-2 hover:text-white" onClick={() => signOut()}>
+          <h2>{session?.user.name}</h2>
+          <LogoutIcon className="h-5 w-5"/>
+        </button>
       </div>
     </div>
   )

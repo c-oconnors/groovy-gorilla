@@ -14,7 +14,11 @@ module.exports = {
       black: '#000',
       white: '#fff',
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        'groovy': '4px 4px 0 black',
+      }
+    },
   },
   // theme: {
   // },
