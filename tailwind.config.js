@@ -16,7 +16,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        'groovy': '4px 4px 0 black',
+        'groovy': '8px 8px 0 black',
       }
     },
   },
