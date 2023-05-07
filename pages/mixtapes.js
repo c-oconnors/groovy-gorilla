@@ -11,14 +11,10 @@ export default function Mixtapes() {
       </div>
       
       <div className="basis-11/12 flex flex-row justify-center h-screen overflow-hidden">
-        {/* <div className="flex flex-grow max-h-full max-w-2xl"> */}
-        <div className="flex basis-1/4">
-          <Sidebar />
-        </div>
-        {/* <div className="flex flex-grow max-h-full max-w-2xl"> */}
-        <div className="flex basis-3/4">
-        <Player />
-        </div>
+
+        <div className="flex basis-1/4"><Sidebar /></div>
+
+        <div className="flex basis-3/4"><Player /></div>
         
       </div>
      

@@ -1,4 +1,8 @@
 // Center of the app, where the user can play music
+// BUGS: 
+// 1. design breaks when there are less than 5 tracks in the playlist
+// 2. Spotify is only sending 20 playlists - if this can't be fixed provide a link to older playlists ("archive") on Spotify 
+
 import React, { useEffect } from 'react'
 import { signOut, useSession } from "next-auth/react";
 import PlayerControls from './PlayerControls';
@@ -28,7 +32,8 @@ function Player() {
       {/* Header */}
       <div className="basis-1/12 bg-groovyPink border-b-4 px-1 pt-1">
         <div className='flex'>
-          <h1 className='text-3xl font-bold'>{playlist?.name}</h1>{/* Load Mixtape title */}
+          {/* Load Mixtape title */}
+          <h1 className='text-3xl font-bold'>{playlist?.name}</h1>
         </div>
       </div>
 
