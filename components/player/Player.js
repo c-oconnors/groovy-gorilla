@@ -34,7 +34,7 @@ function Player() {
 
       {/* Featured section: Album Art, Artist Name, Song Title */}
       <div className="flex basis-3/12 flex-row justify-start">
-        <img className="w-60 h-60 border-4 shadow-groovy m-5" src={playlist?.images[0]?.url} alt="" />
+        <img className="w-60 h-60 border-4 shadow-groovy m-5" src={playlist?.images[0]?.url} placeholder='blur' alt="" />
         <div className="flex flex-col justify-center">
           <div className=""> 
             <h1>Song Title</h1>
@@ -50,7 +50,7 @@ function Player() {
 
     
       {/* Player Controls */}
-      <div className='basis-1/12 border-t-4'>
+      <div className='basis-1/12 border-t-4 '>
         <div className="flex justify-center">
           <PlayerControls />
         </div>
