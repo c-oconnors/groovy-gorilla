@@ -15,12 +15,12 @@ function TrackListItem({ order, track }) {
       
       <div className="flex flex-row p-2 cursor-default">
         <div className="flex justify-start basis-1/2 space-x-2">
-          <div className="flex flex-col w-5 h-5 py-2.5">
+          <div className="flex flex-col w-5 h-5 my-auto">
             {/* TODO: onHover show play icon */}
             {/* <div className="text-sm text-white hover:text-groovyPurple ease-linear duration-300 cursor-pointer">
               <FaPlay className="w-5 h-5"/>
             </div> */}
-            <div className="text-sm text-black">
+            <div className="text-sm text-black justify-center">
               <p>{order +1}</p>
             </div>
           </div>
@@ -28,9 +28,12 @@ function TrackListItem({ order, track }) {
             <div>
               <img className="w-10 h-auto" src={track.track.album.images[0].url} alt="" />
             </div>
-            <div className="flex flex-col justify-center px-2">
-              <div className="text-sm">
-                <p>{track.track.name}</p>
+            {/* Track Info */}
+            <div className="flex flex-col justify-center px-2 w-full
+             overflow-hidden">
+              <div className="text-sm  w-full overflow-hidden slide-animation">
+              {/* <p>{track.track.name.length > 32 ? track.track.name.substring(0, 32) + "..." : track.track.name}</p> */}
+              <p>{track.track.name}</p>
               </div>
               <div className="text-xs text-groovyPurple">
                 <p>{track.track.artists[0].name}</p>
@@ -38,8 +41,9 @@ function TrackListItem({ order, track }) {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center basis-1/4 text-xs m-y-auto text-groovyPurple">
-          <p>{track.track.album.name}</p>
+        {/* Album Name */}
+        <div className="flex flex-col justify-center basis-1/4 text-xs m-y-auto text-groovyPurple truncate">
+          <p className='truncate'>{track.track.album.name}</p>
         </div>
        
         {/* TODO: onClick add to signed in user's playlist + change to solid Heart Icon */}
