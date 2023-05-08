@@ -19,13 +19,13 @@ module.exports = {
         'groovy': '8px 8px 0 black',
       },
       keyframes: {
-        'slide-animation': {
+        'groovy-slide': {
           '0%, 100%': { transform: 'translateX(0)' },
           '50%': { transform: 'translateX(100%)' },
         },
       },
       animation: {
-        'slide-animation': 'slide-animation 3s linear infinite',
+        'groovy-slide': 'slide-animation 3s linear infinite',
       },
     },
   },

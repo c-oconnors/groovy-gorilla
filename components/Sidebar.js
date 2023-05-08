@@ -29,8 +29,8 @@ export default function Sidebar() {
       <div className="overflow-auto">
         <div className="overflow-auto p-1">
           {playlists.map((playlist) => (
-            <div className="m-1 hover:bg-groovyPurple hover:text-white ease-linear duration-100  hover:border-black">
-              <p key={playlist.id} onClick={() => setPlaylistId(playlist.id)} className="cursor-pointer px-1 text-2xl font-bold">{playlist.name}</p>
+            <div className="m-1 hover:bg-groovyBlue hover:text-white ease-linear duration-100  hover:border-black">
+              <p key={playlist.id} onClick={() => setPlaylistId(playlist.id)} className="cursor-pointer px-1 lg:text-lg md:text-md sm:text-sm">{playlist.name}</p>
             </div>
           ))}
           

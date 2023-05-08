@@ -11,51 +11,61 @@ function TrackListItem({ order, track }) {
   const spotifyApi = useSpotify();
   return (
     
-    <div className="mx-4">
-      
+    <div className="mx-4 hover:bg-groovyBlue ease-linear duration-300 hover:text-white">
       <div className="flex flex-row p-2 cursor-default">
         <div className="flex justify-start basis-1/2 space-x-2">
+          
+          {/* Track number */}
+          {/* TODO: onHover show play icon */}
           <div className="flex flex-col w-5 h-5 my-auto">
-            {/* TODO: onHover show play icon */}
-            {/* <div className="text-sm text-white hover:text-groovyPurple ease-linear duration-300 cursor-pointer">
-              <FaPlay className="w-5 h-5"/>
-            </div> */}
             <div className="text-sm text-black justify-center">
               <p>{order +1}</p>
             </div>
           </div>
-          <div className="flex flex-row">
+
+          <div className="flex flex-row basis-1/2 overflow-hidden">
+
+            {/* Album art */}
             <div>
               <img className="w-10 h-auto" src={track.track.album.images[0].url} alt="" />
             </div>
-            {/* Track Info */}
-            <div className="flex flex-col justify-center px-2 w-full
-             overflow-hidden">
-              <div className="text-sm  w-full overflow-hidden slide-animation">
-              {/* <p>{track.track.name.length > 32 ? track.track.name.substring(0, 32) + "..." : track.track.name}</p> */}
-              <p>{track.track.name}</p>
+            
+            
+            <div className="flex flex-col justify-center px-2 max-w-full overflow-hidden">
+              
+              {/* Track name */}
+              <div className="flex text-sm w-full max-w-full">
+                <p className='truncate'>{track.track.name}</p>
               </div>
-              <div className="text-xs text-groovyPurple">
-                <p>{track.track.artists[0].name}</p>
+              
+              {/* Artist name */}
+              <div className="flex text-xs text-groovyPurple ">
+                <p className='truncate'>{track.track.artists[0].name}</p>
               </div>
             </div>
+
           </div>
         </div>
         {/* Album Name */}
-        <div className="flex flex-col justify-center basis-1/4 text-xs m-y-auto text-groovyPurple truncate">
-          <p className='truncate'>{track.track.album.name}</p>
+        <div className="flex flex-col justify-center basis-1/4 text-xs m-y-auto truncate">
+          <p className='truncate text-groovyPurple'>{track.track.album.name}</p>
         </div>
        
         {/* TODO: onClick add to signed in user's playlist + change to solid Heart Icon */}
         <div className="flex flex-row justify-end basis-1/4">
+          
+          {/* 'Like' toggle */}
           <div className="flex basis-1/2 text-white hover:text-groovyPink ease-linear duration-300 cursor-pointer">
             <HeartIcon className="w-5"/>
           </div>
+          
+          {/* Track time */}
           <div className="flex basis-1/4">
             <div className="flex flex-col justify-center text-groovyPurple">
               <p>{millisToMinutesAndSeconds(track.track.duration_ms)}</p>
             </div>
           </div>
+
         </div>
 
       </div>

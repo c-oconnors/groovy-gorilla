@@ -55,8 +55,8 @@ function Player() {
 
     
       {/* Player Controls */}
-      <div className='basis-1/12 border-t-4 '>
-        <div className="flex justify-center">
+      <div className='basis-1/12 border-t-4'>
+        <div className="justify-center">
           <PlayerControls />
         </div>
       </div>

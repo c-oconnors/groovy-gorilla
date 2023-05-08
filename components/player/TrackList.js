@@ -9,7 +9,7 @@ function TrackList() {
   const playlist = useRecoilValue(playlistState);
 
   return (
-    <div className="flex flex-col justify-start overflow-auto bg-none">
+    <div className="basis-8/12 flex flex-col justify-start overflow-auto bg-none">
       <div className="basis-2/12 mx-4 border-none">
           <div className="flex flex-row p-2 border-b-4 bg-none">
             <div className="flex justify-start basis-1/2 space-x-2">
